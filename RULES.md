@@ -10,7 +10,7 @@ video_required: unknown
 video_max_seconds: null
 live_demo_required: unknown
 license_required: "unverified"
-last_checked: "2026-10-06T00:00:00+01:00"
+last_checked: "2026-10-06T12:00:00+01:00"
 ---
 
 # Rules snapshot — BLI Legal Tech Hackathon 2
@@ -36,3 +36,7 @@ UNVERIFIED — confirm on the rules page before committing time.
 
 ## Changes log
 _(/check appends dated entries here)_
+
+### 2026-10-06 — /check (WEAK — RECONSIDER)
+VERIFIED on official page — contradicts Emma's $20k. DoraHacks header shows '20,000 USD' but the DETAIL body says 'Over $10,000+ USD value in bounties, support, and promotion' and warns: 'Prize pool is still developing, the amount you see now may not reflect the actual prize amount. All prizes and bounties are provided at the sole discretion of the event producers and may be subject to withdrawal or change.' Much of the 'value' is support/promotion/press/accelerator access, not cash. Deadline Nov 1 02:01 (DoraHacks clock) ~ Oct 31 ET. Payment confidence LOW. Not a hard-filter reject, but the prize is unverified, partly non-cash, and discretionary.
+Official URL: https://dorahacks.io/hackathon/legal-hack-2026/detail
