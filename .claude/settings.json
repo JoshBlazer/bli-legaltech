@@ -1,0 +1,112 @@
+{
+  "permissions": {
+    "allow": [
+      "Read",
+      "Write",
+      "Edit",
+      "WebSearch",
+      "WebFetch",
+      "Bash(ls:*)",
+      "Bash(cat:*)",
+      "Bash(mkdir:*)",
+      "Bash(cp:*)",
+      "Bash(mv:*)",
+      "Bash(date:*)",
+      "Bash(node:*)",
+      "Bash(npm:*)",
+      "Bash(npx:*)",
+      "Bash(pnpm:*)",
+      "Bash(yarn:*)",
+      "Bash(bun:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git status:*)",
+      "Bash(git diff:*)",
+      "Bash(git log:*)",
+      "Bash(git show:*)",
+      "Bash(git restore:*)",
+      "Bash(git stash:*)",
+      "Bash(git switch:*)",
+      "Bash(git branch:*)",
+      "Bash(git push)",
+      "Bash(git push origin:*)",
+      "Bash(git push -u origin:*)",
+      "Bash(gh issue:*)",
+      "Bash(gh run:*)",
+      "Bash(gh repo view:*)",
+      "Bash(gh pr:*)",
+      "Bash(vercel deploy:*)",
+      "Bash(vercel env ls:*)",
+      "Bash(vercel logs:*)",
+      "Bash(supabase:*)",
+      "Bash(forge build:*)",
+      "Bash(forge test:*)",
+      "Bash(forge fmt:*)",
+      "Bash(forge coverage:*)",
+      "Bash(forge init:*)",
+      "Bash(forge install:*)",
+      "Bash(anvil:*)",
+      "Bash(cast call:*)",
+      "Bash(cast wallet address:*)",
+      "Bash(cast balance:*)",
+      "Bash(cast chain-id:*)",
+      "Bash(ffmpeg:*)",
+      "Bash(ffprobe:*)",
+      "mcp__playwright",
+      "mcp__context7",
+      "mcp__supabase",
+      "mcp__figma",
+      "mcp__google-calendar",
+      "Bash(git tag:*)",
+      "Bash(git push --tags)",
+      "Bash(git push origin --tags)"
+    ],
+    "ask": [
+      "Bash(vercel --prod:*)",
+      "Bash(vercel deploy --prod:*)",
+      "Bash(gh repo edit:*)",
+      "Bash(forge script:*)",
+      "Bash(forge create:*)",
+      "Bash(cast send:*)",
+      "Bash(npm publish:*)",
+      "mcp__gmail"
+    ],
+    "deny": [
+      "Read(./.env)",
+      "Read(./.env.*)",
+      "Bash(cat .env:*)",
+      "Bash(rm -rf:*)",
+      "Bash(git push --force:*)",
+      "Bash(git push -f:*)",
+      "Bash(git reset --hard:*)",
+      "Bash(gh repo delete:*)",
+      "Bash(cast wallet private-key:*)"
+    ],
+    "additionalDirectories": [
+      "../reference"
+    ]
+  },
+  "includeCoAuthoredBy": false,
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"$CLAUDE_PROJECT_DIR/scripts/hooks/session-start.mjs\""
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"$CLAUDE_PROJECT_DIR/scripts/hooks/stop-guard.mjs\""
+          }
+        ]
+      }
+    ]
+  }
+}
