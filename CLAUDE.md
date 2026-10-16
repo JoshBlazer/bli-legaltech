@@ -3,7 +3,7 @@
 Claude Code loads this automatically. Read it fully at the start of every session.
 
 **Pitch:** A smart-contract compliance / regtech tool that automates a real legal workflow on-chain.
-**Deadline:** 2026-10-31T23:59:00+01:00 (source of truth: `RULES.md` frontmatter)
+**Deadline:** 2026-11-01T01:01:00Z (02:01 WAT) (source of truth: `RULES.md` frontmatter)
 **Stack:** web3
 **Repo:** github.com/JoshBlazer/bli-legaltech
 

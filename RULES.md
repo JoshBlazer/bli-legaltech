@@ -2,7 +2,7 @@
 name: "BLI Legal Tech Hackathon 2"
 rules_url: "https://dorahacks.io/hackathon/legal-hack-2026"
 submission_url: "https://dorahacks.io/hackathon/legal-hack-2026"
-deadline: "2026-10-31T23:59:00+01:00"
+deadline: "2026-11-01T01:01:00Z"
 timezone_original: "per Emma roundup 2026-10-02 — dates only; EXACT TIME UNVERIFIED"
 ai_policy: "allowed"
 repo_must_be_public: unknown
@@ -29,7 +29,7 @@ last_checked: "2026-10-06T12:00:00+01:00"
 Smart contract compliance, legal automation, dispute ledgers, regtech.
 
 ## Deadline
-2026-10-31T23:59:00+01:00 (WAT) — **TIME UNVERIFIED**, verify on the page.
+2026-11-01T01:01:00Z (= 02:01 WAT Nov 1) — verified via page JSON 2026-10-16.
 
 ## Eligibility / IP / AI policy
 UNVERIFIED — confirm on the rules page before committing time.
