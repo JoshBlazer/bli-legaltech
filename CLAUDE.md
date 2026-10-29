@@ -23,7 +23,17 @@ Claude Code loads this automatically. Read it fully at the start of every sessio
 - **Scope is sacred.** Don't add features not in `PLAN.md`. If you think something should be added, say so and let the operator decide.
 
 ## Commands
-_(stack commands filled when the build starts)_
+Stack: **Foundry** (Solidity contracts) at repo root; Next.js frontend lands in M3.
+Foundry binaries live in `C:\Users\user\foundry-bin` (forge 1.5.1-stable) — add that
+folder to PATH, or install via `foundryup`, so the `forge`/`cast`/`anvil` commands resolve.
+
+- Build contracts: `forge build`
+- Test contracts: `forge test -vv` (the eval/harness)
+- Format: `forge fmt`
+- Local chain: `anvil` (testnet/local only — never mainnet)
+- Dependencies are vendored under `lib/` (forge-std). A fresh checkout builds with no
+  extra install step.
+- Frontend (from M3): `npm install` then `npm run dev` inside the web app folder.
 
 ## Authorship
 - Commits are authored solely by the operator (local git config is already set). No `Co-Authored-By` trailers, no AI attribution in commit messages or README.
