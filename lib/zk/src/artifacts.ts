@@ -15,11 +15,6 @@
  */
 import { createRequire } from "node:module";
 
-const require = createRequire(import.meta.url);
-const fs = require("node:fs") as typeof import("node:fs");
-const path = require("node:path") as typeof import("node:path");
-const { fileURLToPath } = require("node:url") as typeof import("node:url");
-
 /** Paths Semaphore's `generateProof` accepts as its `snarkArtifacts` argument. */
 export interface SnarkArtifactPaths {
   wasm: string;
@@ -29,18 +24,20 @@ export interface SnarkArtifactPaths {
 /** Public PSE mirror of the Semaphore trusted-setup artifacts. */
 export const ARTIFACT_BASE_URL = "https://snark-artifacts.pse.dev/semaphore/latest";
 
-const CACHE_DIR = path.join(path.dirname(fileURLToPath(import.meta.url)), "..", ".artifacts");
-
-function cachePath(depth: number, ext: "wasm" | "zkey"): string {
-  return path.join(CACHE_DIR, `semaphore-${depth}.${ext}`);
-}
-
-async function download(url: string, dest: string): Promise<void> {
-  const res = await fetch(url);
-  if (!res.ok) throw new Error(`artifact download failed (${res.status}) for ${url}`);
-  const buf = Buffer.from(await res.arrayBuffer());
-  fs.mkdirSync(path.dirname(dest), { recursive: true });
-  fs.writeFileSync(dest, buf);
+/**
+ * Node built-ins are loaded lazily (inside `ensureArtifacts`) rather than at
+ * module top level so this module can be imported in a browser bundle without
+ * dragging in `node:fs`/`node:path`. Browser callers never invoke
+ * `ensureArtifacts` — they pass artifact URLs straight to `prove(...)` — so the
+ * node path below only ever runs under Node.
+ */
+function nodeDeps() {
+  const require = createRequire(import.meta.url);
+  const fs = require("node:fs") as typeof import("node:fs");
+  const path = require("node:path") as typeof import("node:path");
+  const { fileURLToPath } = require("node:url") as typeof import("node:url");
+  const CACHE_DIR = path.join(path.dirname(fileURLToPath(import.meta.url)), "..", ".artifacts");
+  return { fs, path, CACHE_DIR };
 }
 
 /**
@@ -49,8 +46,18 @@ async function download(url: string, dest: string): Promise<void> {
  * at app start) to pre-warm; subsequent calls are instant.
  */
 export async function ensureArtifacts(depth: number): Promise<SnarkArtifactPaths> {
-  const wasm = cachePath(depth, "wasm");
-  const zkey = cachePath(depth, "zkey");
+  const { fs, path, CACHE_DIR } = nodeDeps();
+  const cachePath = (ext: "wasm" | "zkey") => path.join(CACHE_DIR, `semaphore-${depth}.${ext}`);
+  const download = async (url: string, dest: string): Promise<void> => {
+    const res = await fetch(url);
+    if (!res.ok) throw new Error(`artifact download failed (${res.status}) for ${url}`);
+    const buf = Buffer.from(await res.arrayBuffer());
+    fs.mkdirSync(path.dirname(dest), { recursive: true });
+    fs.writeFileSync(dest, buf);
+  };
+
+  const wasm = cachePath("wasm");
+  const zkey = cachePath("zkey");
   const jobs: Promise<void>[] = [];
   if (!fs.existsSync(wasm)) jobs.push(download(`${ARTIFACT_BASE_URL}/semaphore-${depth}.wasm`, wasm));
   if (!fs.existsSync(zkey)) jobs.push(download(`${ARTIFACT_BASE_URL}/semaphore-${depth}.zkey`, zkey));
