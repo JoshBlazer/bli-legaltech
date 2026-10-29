@@ -1,16 +1,100 @@
-# SUBMISSION — {{NAME}}
+# SUBMISSION — Attestry
 
-Filled by `/ship`. Copy each field into the submission form. **You** click submit, then run `/submitted`.
+Drafted by ship-prep. Copy each field into the DoraHacks submission form. **The
+operator** clicks submit, then runs `/submitted`.
 
-Submission page: {{SUBMISSION_URL}}
+Submission page: https://dorahacks.io/hackathon/legal-hack-2026
+
+> The exact field set below is the standard DoraHacks BUIDL form. Confirm the
+> live form's fields before pasting — some events add/rename fields. Items that
+> depend on actions only the operator can take are marked **[OPERATOR]**.
 
 ## Fields
-{{One section per field the platform's form actually has — e.g. Project name, Tagline, Description/Story, Built with, Tracks, Repo URL, Demo URL, Video URL, Team, AI disclosure (if required)}}
+
+### Project name
+Attestry
+
+### Tagline
+On-chain compliance attestations that anyone can verify in seconds — no central database, no trust in the issuer's word.
+
+### Description / Story
+**The problem.** Proving a compliance check happened — a KYC/AML review, a
+sanctions screen, a regulatory filing — means trusting a PDF or an email.
+Regulators, auditors, and counterparties can't independently verify it, and
+records can be quietly edited after the fact.
+
+**Attestry.** A smart-contract registry where allow-listed issuers (KYC
+providers, compliance teams) record tamper-evident attestations on-chain. Each
+attestation stores a schema id (what kind of check) and a hash of the off-chain
+document — never personal data. Anyone can then verify the issuer, timestamp,
+and status directly against chain state. Issuers can revoke; the original record
+is preserved, producing an immutable audit trail.
+
+**What's built.** A complete, tested `ComplianceRegistry` contract (issuer
+allowlist, attest, revoke, verify, events), a keyless end-to-end demo script
+that walks deploy → attest → verify → revoke, and a verifier UI mock showing the
+empty/loading/valid/revoked states. 18 tests pass (including fuzz).
+
+**Why on-chain.** The one thing a chain adds over a SaaS form is trust-minimized
+verification: no intermediary can alter or deny the record. That is exactly what
+a compliance audit trail needs.
+
+### Built with
+Solidity, Foundry (forge/anvil/cast), forge-std. Target chain: Ethereum Sepolia testnet.
+
+### Tracks / category
+Smart-contract compliance / regtech / legal automation. **[OPERATOR]** select the
+track(s) the live form offers.
+
+### Repository URL
+https://github.com/JoshBlazer/bli-legaltech — **[OPERATOR]** the repo is currently
+local only; push and (if the rules require a public repo) make it public before submitting.
+
+### Demo / video URL
+**[OPERATOR]** optional per rules (video requirement unverified). If recording: screen-capture
+the `forge script script/Demo.s.sol -vvv` run and/or the `web/index.html` verifier mock.
+
+### Live demo / deployed contract
+**[OPERATOR]** deploy to Sepolia with a burner wallet (never mainnet) and paste the
+contract address + a block-explorer link. See README "Deploying to a testnet".
+
+### Team
+Joshua Willie (solo).
+
+### AI disclosure
+RULES.md `ai_policy` = "allowed" (no required disclosure recorded). **[OPERATOR]**
+if the live form asks, disclose per the form.
 
 ## Assets
-- Screenshots: `submission/screenshots/`
+- Progress/evidence: `submission/progress/` (forge test transcript, demo run transcript)
+- Screenshots: `submission/screenshots/` — **[OPERATOR]** capture `web/index.html`
+  (valid + revoked states, 390px) and the demo run.
 - Video draft: `submission/video/`
-- Thumbnail/cover: `submission/cover.png`
 
-## Pre-flight
-{{/ship writes the checklist against RULES.md here, each item ✅ / ❌ with evidence}}
+## Pre-flight checklist (vs RULES.md)
+
+Legend: ✅ done · ⚠️ needs operator / unverified · ❌ not done
+
+- ✅ Concept is a real legal/compliance workflow on-chain (matches theme: smart-contract compliance, regtech).
+- ✅ Contract builds (`forge build`) and full test suite passes (`forge test` — 18/18, incl. fuzz).
+- ✅ Keyless end-to-end demo runs (`forge script script/Demo.s.sol -vvv`).
+- ✅ Code formatted (`forge fmt --check` clean).
+- ✅ LICENSE present (MIT) — matches SPDX headers. (RULES `license_required` = unverified; ⚠️ confirm the rules' required license, if any.)
+- ✅ No secrets committed; only env var names in `.env.example`; `.env` gitignored.
+- ✅ Testnet-only posture; no mainnet, no real funds, no deploy performed.
+- ⚠️ Deadline: 2026-11-01T01:01:00Z (re-verified 2026-10-16). Submit well before — note DoraHacks clock.
+- ⚠️ Eligibility (Nigeria) — UNVERIFIED in RULES.md. Confirm before submitting.
+- ⚠️ IP terms — UNVERIFIED. Confirm no ownership/exclusive grab.
+- ⚠️ Prize currency/amount — unverified, discretionary, partly non-cash (payment confidence LOW).
+- ⚠️ Repo public requirement — UNKNOWN in RULES.md. Confirm; if required, make public.
+- ⚠️ Video / live-demo requirement — UNKNOWN in RULES.md. Confirm and produce if required.
+- ❌ Repo pushed to GitHub — **[OPERATOR]**, local only by design.
+- ❌ Contract deployed to Sepolia — **[OPERATOR]**, needs burner key + RPC.
+- ❌ Entry submitted — **[OPERATOR]** only.
+
+## Operator steps to actually ship
+1. Run `/check` against the live rules page to resolve the ⚠️ unknowns (eligibility, IP, repo-public, video, license).
+2. Deploy to Sepolia with a burner wallet; record the address + explorer link (into "Live demo" above).
+3. Push the repo (and make public if required).
+4. (If required) record a short demo video; capture screenshots into `submission/screenshots/`.
+5. Paste the fields above into the live form, verify against the pre-flight, submit, then run `/submitted`.
