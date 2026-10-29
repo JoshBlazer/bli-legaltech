@@ -1,0 +1,31 @@
+{
+  "name": "attestry-dapp",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Attestry v2 dApp — issue, verify, and ZK-prove on-chain compliance attestations.",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@tanstack/react-query": "5.59.16",
+    "next": "14.2.18",
+    "qrcode": "1.5.4",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "viem": "2.21.44",
+    "wagmi": "2.12.31"
+  },
+  "devDependencies": {
+    "@types/node": "20.17.6",
+    "@types/qrcode": "1.5.5",
+    "@types/react": "18.3.12",
+    "@types/react-dom": "18.3.1",
+    "autoprefixer": "10.4.20",
+    "postcss": "8.4.49",
+    "tailwindcss": "3.4.15",
+    "typescript": "5.6.3"
+  }
+}
