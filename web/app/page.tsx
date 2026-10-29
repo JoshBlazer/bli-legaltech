@@ -2,7 +2,7 @@ import Link from "next/link";
 import { COPY } from "@/lib/copy";
 
 export default function Landing() {
-  const { hero, legs, how } = COPY;
+  const { hero, legs, how, closing, micro } = COPY;
   return (
     <main style={{ maxWidth: 820, margin: "0 auto", padding: "16px" }}>
       {/* Hero */}
@@ -68,7 +68,7 @@ export default function Landing() {
       </section>
 
       {/* How it works */}
-      <section style={{ marginBottom: 56 }}>
+      <section id="how" style={{ marginBottom: 56, scrollMarginTop: 24 }}>
         <h2 style={{ fontSize: 22, textAlign: "center", margin: "0 0 24px" }}>
           How it works
         </h2>
@@ -105,15 +105,36 @@ export default function Landing() {
         </div>
       </section>
 
+      {/* Closing CTA */}
+      <section
+        className="card"
+        style={{ padding: "32px 20px", textAlign: "center", marginBottom: 40 }}
+      >
+        <h2 style={{ fontSize: 22, margin: "0 0 8px" }}>{closing.heading}</h2>
+        <p style={{ color: "var(--muted)", fontSize: 15, margin: "0 0 20px" }}>
+          {closing.body}
+        </p>
+        <Link href={closing.cta.href} className="btn">
+          {closing.cta.label}
+        </Link>
+        <div style={{ color: "var(--muted)", fontSize: 12, marginTop: 16 }}>
+          {micro.trustBadge}
+        </div>
+      </section>
+
       <footer
         style={{
           textAlign: "center",
           color: "var(--muted)",
           fontSize: 12,
           paddingBottom: 32,
+          lineHeight: 1.5,
         }}
       >
-        Testnet only · no real funds · the document never leaves your browser.
+        {micro.footerTagline}
+        <div style={{ marginTop: 6 }}>
+          Testnet only · no real funds · the document never leaves your browser.
+        </div>
       </footer>
     </main>
   );
