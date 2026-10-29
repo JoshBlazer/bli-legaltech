@@ -154,13 +154,21 @@ export default function ProvePage() {
         lede="Prove you hold a valid attestation from an issuer under a schema, revealing only a nullifier — never which record is yours."
       />
 
-      {ZK_IS_STUB && (
+      {ZK_IS_STUB ? (
         <Notice>
           ZK module is a <strong>typed stub</strong> standing in for workstream C&apos;s
           <span className="mono"> lib/zk</span> (Semaphore v4). Proofs demonstrate the flow
           end-to-end but are not yet cryptographically sound.
-          {IS_PLACEHOLDER_ADDRESS && " No deployment wired, so the group falls back to your own commitment."}
         </Notice>
+      ) : (
+        IS_PLACEHOLDER_ADDRESS && (
+          <Notice>
+            Proofs are <strong>real Semaphore v4 zk-SNARKs</strong>, generated in your browser.
+            No deployment is wired yet, so the anonymity group falls back to just your own
+            commitment — set <span className="mono">NEXT_PUBLIC_CONTRACT_ADDRESS</span> post-deploy
+            to prove membership against the full on-chain (issuer, schema) set.
+          </Notice>
+        )
       )}
 
       <div style={{ display: "flex", gap: 8, marginBottom: 18 }}>
