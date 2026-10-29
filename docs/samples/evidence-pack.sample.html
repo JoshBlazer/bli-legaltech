@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Attestry Evidence Record — Attestation #42</title>
+<style>
+  :root{
+    --ink:#101418; --muted:#55606b; --line:#d8dee5; --bg:#ffffff;
+    --accent:#0b5d3b; --accent-bg:#e7f3ec; --mono:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; background:#eef1f4; color:var(--ink);
+    font:15px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  }
+  .sheet{
+    max-width:820px; margin:28px auto; background:var(--bg); padding:48px 56px;
+    border:1px solid var(--line); box-shadow:0 2px 14px rgba(16,20,24,.08);
+  }
+  header{border-bottom:2px solid var(--ink); padding-bottom:18px; margin-bottom:26px}
+  .brand{font-size:12px; letter-spacing:.18em; text-transform:uppercase; color:var(--muted); font-weight:700}
+  h1{font-size:23px; margin:8px 0 4px; letter-spacing:-.01em}
+  .subtitle{color:var(--muted); font-size:13.5px; margin:0}
+  .filed{
+    display:inline-block; margin-top:12px; font-size:11px; font-weight:700; letter-spacing:.08em;
+    text-transform:uppercase; color:var(--accent); background:var(--accent-bg);
+    border:1px solid #bfe0cd; border-radius:3px; padding:3px 9px;
+  }
+  .status-row{display:flex; align-items:center; gap:10px; margin:22px 0 28px}
+  .badge{
+    font-weight:700; font-size:13px; letter-spacing:.05em; text-transform:uppercase;
+    color:#fff; background:var(--accent); border-radius:4px; padding:5px 12px;
+  }
+  .status-note{color:var(--muted); font-size:13px}
+  h2{
+    font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--muted);
+    border-bottom:1px solid var(--line); padding-bottom:6px; margin:28px 0 12px;
+  }
+  table{width:100%; border-collapse:collapse}
+  th,td{text-align:left; vertical-align:top; padding:8px 0; border-bottom:1px solid #eef1f4}
+  th{width:34%; font-weight:600; color:var(--muted); font-size:13.5px}
+  td{font-size:14px}
+  .mono{font-family:var(--mono); font-size:12.5px; word-break:break-all; color:var(--ink)}
+  .hint{color:var(--muted); font-size:12px; margin-top:2px}
+  ol{margin:6px 0 0; padding-left:20px}
+  ol li{margin:6px 0; font-size:13.5px}
+  footer{
+    margin-top:34px; padding-top:16px; border-top:1px solid var(--line);
+    color:var(--muted); font-size:11.5px; line-height:1.5;
+  }
+  a{color:var(--accent)}
+  @media print{
+    body{background:#fff}
+    .sheet{box-shadow:none; border:none; margin:0; max-width:none; padding:0.5in 0.6in}
+  }
+  @media (max-width:560px){
+    .sheet{padding:28px 20px; margin:0}
+    th{width:100%; display:block; padding-bottom:0}
+    td{display:block; padding-top:2px}
+    tr{display:block; padding:8px 0; border-bottom:1px solid #eef1f4}
+    th,td{border:none}
+  }
+</style>
+</head>
+<body>
+  <div class="sheet">
+    <header>
+      <div class="brand">Attestry</div>
+      <h1>Compliance Attestation — Evidence Record</h1>
+      <p class="subtitle">Independently re-verifiable on-chain compliance evidence</p>
+      <span class="filed">Filing-ready</span>
+    </header>
+
+    <div class="status-row">
+      <span class="badge">Valid</span>
+      <span class="status-note">Status resolved against chain state. Not revoked. Not expired.</span>
+    </div>
+
+    <h2>Attestation</h2>
+    <table>
+      <tr><th>Attestation ID</th><td class="mono">42</td></tr>
+      <tr><th>Schema</th><td>KYC/AML v1<div class="hint mono">0x8f2b4d1c6e3a9075b1c2d4e5f60718293a4b5c6d7e8f9012a3b4c5d6e7f80912</div></td></tr>
+      <tr><th>Issued</th><td>2026-10-20 09:14:33 UTC<div class="hint">unix 1792487673</div></td></tr>
+      <tr><th>Expires</th><td>2027-10-20 09:14:33 UTC<div class="hint">unix 1824023673</div></td></tr>
+    </table>
+
+    <h2>Parties</h2>
+    <table>
+      <tr><th>Issuer (allow-listed)</th><td class="mono">0x3C44CdDdB6a900fa2b585dd299e03d12FA4293BC</td></tr>
+      <tr><th>Subject</th><td class="mono">0x90F79bf6EB2c4f870365E785982E1f101E93b906</td></tr>
+    </table>
+
+    <h2>Document integrity</h2>
+    <table>
+      <tr><th>Document hash (keccak256)</th><td class="mono">0xc1d2e3f405162738495a6b7c8d9e0f1a2b3c4d5e6f708192a3b4c5d6e7f80910</td></tr>
+      <tr><td colspan="2" class="hint">Re-hash the original signed report and confirm it equals the value above. The document itself is never stored on-chain or in this record — only its fingerprint.</td></tr>
+    </table>
+
+    <h2>On-chain anchor</h2>
+    <table>
+      <tr><th>Contract</th><td class="mono">0x7A9Fe22691c811ea339D9B73150e6911a5343DcA</td></tr>
+      <tr><th>Network</th><td>Ethereum Sepolia testnet<div class="hint">chainId 11155111</div></td></tr>
+      <tr><th>Transaction</th><td class="mono"><a href="https://sepolia.etherscan.io/tx/0x5e4d3c2b1a0918273645546372819a0b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f">0x5e4d3c2b1a0918273645546372819a0b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f</a></td></tr>
+      <tr><th>Merkle checkpoint</th><td>Root index 7<div class="hint">Batch inclusion proof included in the accompanying JSON (3 nodes).</div></td></tr>
+    </table>
+
+    <h2>How to re-verify this record</h2>
+    <ol>
+      <li>Connect any Ethereum Sepolia (chainId 11155111) RPC endpoint — no access to Attestry's servers is required.</li>
+      <li>Call <span class="mono">getAttestation(42)</span> on the contract and confirm the issuer, subject, schema, and document hash match this record.</li>
+      <li>Call <span class="mono">status(42)</span> and confirm it returns <strong>Valid</strong>.</li>
+      <li>Compute <span class="mono">keccak256</span> over the original document and confirm it equals the document hash above.</li>
+      <li>Optional: confirm the Merkle proof in the JSON resolves to the root stored at <span class="mono">roots(7)</span>.</li>
+    </ol>
+
+    <footer>
+      This Evidence Record and its companion <span class="mono">evidence-pack.sample.json</span> are a deterministic
+      export of a single on-chain attestation. Authenticity does not depend on Attestry: every field above can be
+      reproduced from public chain state by any party. Generated by Attestry. Sample data for demonstration.
+    </footer>
+  </div>
+</body>
+</html>
