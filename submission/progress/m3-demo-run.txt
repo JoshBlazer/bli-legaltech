@@ -1,0 +1,20 @@
+# M3 — demo script: end-to-end flow (keyless simulation)
+Command: forge script script/Demo.s.sol -vvv
+```
+No files changed, compilation skipped
+Script ran successfully.
+Gas used: 676041
+
+== Logs ==
+  Registry deployed at: 0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496
+  Version: 1.0.0-m2
+  Issuer allow-listed: 0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38
+  Attestation recorded. id: 1
+  Subject: 0x000000000000000000000000000000000000bEEF
+  isValid(id) after attest: true
+  isValid(id) after revoke: false
+  Record still readable. issuedAt: 1
+  Record revokedAt: 1
+
+If you wish to simulate on-chain transactions pass a RPC URL.
+```

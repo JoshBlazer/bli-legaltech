@@ -1,0 +1,27 @@
+# M2 — forge test (18 tests, all green)
+```
+No files changed, compilation skipped
+
+Ran 18 tests for test/ComplianceRegistry.t.sol:ComplianceRegistryTest
+[PASS] testFuzz_AttestStoresData(address,bytes32,bytes32) (runs: 256, μ: 176091, ~: 176091)
+[PASS] test_AddIssuer_RevertsForNonOwner() (gas: 13093)
+[PASS] test_AddIssuer_RevertsWhenAlreadyIssuer() (gas: 35375)
+[PASS] test_Attest_HappyPath_StoresAndEmits() (gas: 182676)
+[PASS] test_Attest_IncrementsIds() (gas: 290620)
+[PASS] test_Attest_RevertsAfterIssuerRemoved() (gas: 28338)
+[PASS] test_Attest_RevertsForNonIssuer() (gas: 15556)
+[PASS] test_Attest_RevertsForZeroSubject() (gas: 35942)
+[PASS] test_GetAttestation_RevertsForUnknown() (gas: 20838)
+[PASS] test_IsValid_FalseForUnknown() (gas: 7852)
+[PASS] test_OwnerAddsIssuer_EmitsEvent() (gas: 36662)
+[PASS] test_OwnerRemovesIssuer_EmitsEvent() (gas: 27209)
+[PASS] test_RemoveIssuer_RevertsWhenNotIssuer() (gas: 12928)
+[PASS] test_Revoke_HappyPath_EmitsAndInvalidates() (gas: 184094)
+[PASS] test_Revoke_RevertsForNonIssuerOfAttestation() (gas: 202139)
+[PASS] test_Revoke_RevertsForUnknownId() (gas: 13177)
+[PASS] test_Revoke_RevertsWhenAlreadyRevoked() (gas: 179645)
+[PASS] test_VersionAndOwner() (gas: 15448)
+Suite result: ok. 18 passed; 0 failed; 0 skipped; finished in 32.79ms (34.83ms CPU time)
+
+Ran 1 test suite in 390.19ms (32.79ms CPU time): 18 tests passed, 0 failed, 0 skipped (18 total tests)
+```
