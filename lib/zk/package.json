@@ -1,0 +1,26 @@
+{
+  "name": "@attestry/zk",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Attestry v2 selective-disclosure membership proofs (Semaphore v4 zk-SNARK).",
+  "type": "module",
+  "main": "src/index.ts",
+  "types": "src/index.ts",
+  "scripts": {
+    "demo": "tsx src/demo.ts",
+    "test": "node --import tsx --test --test-force-exit test/*.test.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^22.20.5",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  },
+  "dependencies": {
+    "@semaphore-protocol/group": "^4.14.5",
+    "@semaphore-protocol/identity": "^4.14.5",
+    "@semaphore-protocol/proof": "^4.14.5",
+    "ethers": "^6.17.0"
+  }
+}
