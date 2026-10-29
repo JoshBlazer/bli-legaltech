@@ -1,0 +1,143 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #f6f7f9;
+  --card: #ffffff;
+  --ink: #1a1d24;
+  --muted: #5b6472;
+  --line: #e3e7ee;
+  --brand: #2f5bea;
+  --brand-ink: #ffffff;
+  --ok: #0f8a4f;
+  --okbg: #e7f6ee;
+  --bad: #c23934;
+  --badbg: #fdecea;
+  --warn: #b26a00;
+  --warnbg: #fdf3e2;
+  --chip: #eef1f7;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0f1216;
+    --card: #171b21;
+    --ink: #eef1f6;
+    --muted: #9aa4b2;
+    --line: #273040;
+    --brand: #6d8bff;
+    --brand-ink: #0f1216;
+    --ok: #4cc38a;
+    --okbg: #11291e;
+    --bad: #f2756f;
+    --badbg: #2a1515;
+    --warn: #e0a955;
+    --warnbg: #2a2110;
+    --chip: #222934;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--brand);
+}
+
+@layer components {
+  .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+  }
+  .ipt {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    background: var(--card);
+    color: var(--ink);
+    font-size: 16px;
+  }
+  .ipt:focus {
+    outline: 2px solid var(--brand);
+    outline-offset: 1px;
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 18px;
+    border: 0;
+    border-radius: 10px;
+    background: var(--brand);
+    color: var(--brand-ink);
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.15s;
+  }
+  .btn:hover {
+    opacity: 0.9;
+  }
+  .btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  .btn-ghost {
+    background: transparent;
+    color: var(--ink);
+    border: 1px solid var(--line);
+  }
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--chip);
+    color: var(--muted);
+    border-radius: 999px;
+    padding: 4px 10px;
+    font-size: 12px;
+  }
+  .label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--muted);
+    margin-bottom: 6px;
+  }
+  .mono {
+    font-family: ui-monospace, Menlo, Consolas, monospace;
+    word-break: break-all;
+  }
+}
+
+.spinner {
+  width: 22px;
+  height: 22px;
+  border: 3px solid var(--line);
+  border-top-color: var(--brand);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
