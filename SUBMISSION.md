@@ -55,8 +55,13 @@ local only; push and (if the rules require a public repo) make it public before 
 the `forge script script/Demo.s.sol -vvv` run and/or the `web/index.html` verifier mock.
 
 ### Live demo / deployed contract
-**[OPERATOR]** deploy to Sepolia with a burner wallet (never mainnet) and paste the
-contract address + a block-explorer link. See README "Deploying to a testnet".
+**ComplianceRegistry v2 is live on Sepolia** (burner wallet, testnet only):
+- Contract: `0x2276030180fE1e179096c7ec586E676Ab561c2e6` (chainId 11155111)
+- Explorer: https://sepolia.etherscan.io/address/0x2276030180fE1e179096c7ec586E676Ab561c2e6
+- Seeded with a schema, two allow-listed issuers, and two attestations
+  (one Revoked, one Valid via EIP-712 delegation) + a Merkle checkpoint — see
+  `docs/DEPLOYMENT.md`. `/verify` reads it all straight from chain state.
+- Live dApp (Vercel): **[OPERATOR]** paste the production URL once the deploy is green.
 
 ### Team
 Joshua Willie (solo).
@@ -89,7 +94,7 @@ Legend: ✅ done · ⚠️ needs operator / unverified · ❌ not done
 - ⚠️ Repo public requirement — UNKNOWN in RULES.md. Confirm; if required, make public.
 - ⚠️ Video / live-demo requirement — UNKNOWN in RULES.md. Confirm and produce if required.
 - ❌ Repo pushed to GitHub — **[OPERATOR]**, local only by design.
-- ❌ Contract deployed to Sepolia — **[OPERATOR]**, needs burner key + RPC.
+- ✅ Contract deployed to Sepolia — `0x2276030180fE1e179096c7ec586E676Ab561c2e6`, seeded + verified on-chain (see `docs/DEPLOYMENT.md`).
 - ❌ Entry submitted — **[OPERATOR]** only.
 
 ## Operator steps to actually ship

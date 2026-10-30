@@ -10,3 +10,7 @@ broadcast/*/31337/
 .discord-state.json
 submission/video/raw/
 .DS_Store
+
+# Deploy broadcasts (reproducible; recorded in docs/DEPLOYMENT.md). Sepolia
+# records carry no secrets, but keep the tree clean and avoid failed-run noise.
+broadcast/
