@@ -51,8 +51,11 @@ https://github.com/JoshBlazer/bli-legaltech — **[OPERATOR]** the repo is curre
 local only; push and (if the rules require a public repo) make it public before submitting.
 
 ### Demo / video URL
-**[OPERATOR]** optional per rules (video requirement unverified). If recording: screen-capture
-the `forge script script/Demo.s.sol -vvv` run and/or the `web/index.html` verifier mock.
+Best demo is the **live app**: https://attestry-app.vercel.app (try `/verify` id 1 → Revoked,
+id 2 → Valid; `/prove` → "Load demo credential" → Generate ZK proof).
+A short screen-capture GIF of the verify + ZK-prove flow is at
+`submission/video/attestry-demo.gif`; stills in `submission/screenshots/`
+(`attestry-verify-revoked.jpg`, `attestry-zk-proof.jpg`). **[OPERATOR]** attach/upload if the form wants a video.
 
 ### Live demo / deployed contract
 **ComplianceRegistry v2 is live on Sepolia** (burner wallet, testnet only):
