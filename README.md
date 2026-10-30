@@ -1,5 +1,11 @@
 # Attestry — on-chain compliance attestation registry
 
+**[▶ Live app](https://attestry-app.vercel.app)** · [Contract on Sepolia](https://sepolia.etherscan.io/address/0x2276030180fE1e179096c7ec586E676Ab561c2e6) · [Verify an attestation](https://attestry-app.vercel.app/verify) · [Prove privately](https://attestry-app.vercel.app/prove)
+
+![Attestry — a subject proves they hold a valid attestation under a schema, revealing only a nullifier and never which record is theirs: "Proof generated and self-verified" with a shareable link and QR.](submission/screenshots/attestry-zk-proof.jpg)
+
+<sub>Prove you passed a compliance check (e.g. KYC by Issuer X) without revealing your identity — a real in-browser Semaphore ZK proof. Try it live: `/prove` → **Load demo credential** → **Generate ZK proof**.</sub>
+
 Attestry puts compliance attestations on-chain so anyone can verify them in
 seconds, without trusting the issuer's word or a central database. It automates
 one concrete legal/regtech workflow: the **compliance attestation and audit
@@ -23,6 +29,11 @@ document / result) — never personal data. Anyone can then verify the
 attestation's issuer, timestamp, and status directly against chain state.
 Issuers can revoke; the original record is preserved, producing a tamper-evident
 audit trail.
+
+![Verifying an attestation on the live app: a Revoked record read straight from Sepolia chain state, showing issuer, subject, schema, document hash, and timestamps.](submission/screenshots/attestry-verify-revoked.jpg)
+
+*Anyone can verify in one click — no account, no trust in the issuer's word. The
+status badge, issuer, schema, and document hash are read live from chain state.*
 
 ### Contract API (`src/ComplianceRegistry.sol`)
 
