@@ -61,7 +61,8 @@ the `forge script script/Demo.s.sol -vvv` run and/or the `web/index.html` verifi
 - Seeded with a schema, two allow-listed issuers, and two attestations
   (one Revoked, one Valid via EIP-712 delegation) + a Merkle checkpoint — see
   `docs/DEPLOYMENT.md`. `/verify` reads it all straight from chain state.
-- Live dApp (Vercel): **[OPERATOR]** paste the production URL once the deploy is green.
+- **Live dApp (Vercel): https://attestry-joshs-projects-6ec64e26.vercel.app** — public,
+  reads the live contract (verified: `/verify` id 1 → Revoked, id 2 → Valid).
 
 ### Team
 Joshua Willie (solo).

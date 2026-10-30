@@ -50,5 +50,10 @@ Read path (used by the dApp): `https://ethereum-sepolia-rpc.publicnode.com`.
 
 The dApp (`web/`) reads this contract via the public RPC (keyless) and writes
 through the connected wallet. Config lives in `web/lib/contract.ts`, overridden
-by `NEXT_PUBLIC_*` env vars (see `web/.env.example`). Live URL recorded on the
-submission once the Vercel deploy is green.
+by `NEXT_PUBLIC_*` env vars (see `web/.env.example`).
+
+**Live dApp: https://attestry-joshs-projects-6ec64e26.vercel.app** (Vercel,
+public). Deployed from `web/` with Root Directory = `web`; `web/vercel.json`
+installs the `@attestry/zk` sub-package so in-browser ZK proving works in the
+build. Verified live: `/verify` reads id 1 → Revoked and id 2 → Valid from
+Sepolia chain state.
